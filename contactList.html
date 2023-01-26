@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <head>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    </head>
+<body>
+    <body>
+        <!-- ------------------------------------------Contact List------------------------------------------ -->
+        <section data-role="page" id="contactList">
+            <!-- ------------------------------------------header------------------------------------------ -->
+            <header data-role="header">
+                <a href="#newContact" data-icon="plus">Add</a>
+                <h1>Contact List</h1>
+            </header>
+            <!-- ------------------------------------------Content------------------------------------------ -->
+            <article data-role="content">
+                <!-- ------------------------------------------Search & List View------------------------------------------ -->
+                <ul data-role="listview" data-split-icon="gear" data-split-theme="d" data-inset="true"
+                    data-autodividers="true" data-filter="true">
+                    
+                </ul>
+            </article>
+            <!-- ------------------------------------------Footer------------------------------------------ -->
+            <footer data-role="footer">
+                <h1> Contact List </h1>
+            </footer>
+        </section>
+    
+        <!-- ------------------------------------------contact info------------------------------------------ -->
+        <section id="contactInfo" data-role="page">
+            <header data-role="header" data-add-back-btn="true">
+                <h1>Person</h1>
+            </header>
+            <article data-role="content">
+                
+                <img src="" style="width: 100px; height: 25%;" id="profileImage"><br>
+                <a href="#deleteContact" data-rel="popup" data-position-to="window" data-transition="pop" class="ui-btn ui-btn-inline ui-icon-delete ui-btn-icon-notext" data-rel="dialog"> </a>
+                <a href="#editProfile"><button class="ui-btn ui-btn-inline ui-icon-edit ui-btn-icon-notext" onclick="editView()"></button></a>
+                <a href="tel:012" class="ui-btn ui-btn-inline ui-icon-phone ui-btn-icon-notext"></a>
+
+                <div data-role="popup" id="deleteContact" data-overlay-theme="b" data-theme="b" data-dismissible="false" style="max-width:300px; ">
+                        <div role="main" class="ui-content">
+                            <h3 class="ui-title">Delete Contact?</h3>
+                            <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back">Cancel</a>
+                            <a href="#contactList"><button class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back" data-transition="flow" onclick="deleteUser()">Delete</button></a>
+                        </div>
+                    </div>
+                
+                <form>
+                    Name : <input type="text" id="name" readonly>
+                    Phone : <input type="text" id="phone" readonly>
+                    Email : <input type="text" id="email" readonly>
+                    Gender : <input type="text" id="gender" readonly>
+                </form>
+            </article>
+            
+            <footer data-role="footer">
+                <h1>Contact List</h1>
+            </footer>
+        </section>
+    
+        <!-- <section id="deleteContact" data-role="dialog">
+            <h1 style="text-align: center;">Delete Contact?</h1>
+                <a href="#" class=" ui-btn   ui-btn-b">Delete</a>
+                <a href="#contactInfo"class=" ui-btn   ui-btn-b">Cancel</a>
+        </section> -->
+       
+        <!-- ------------------------------------------create Contact------------------------------------------ -->
+        <section data-role="page" id="newContact">
+            <header data-role="header"  data-add-back-btn="true">
+                <h3>New Contact</h3>
+            </header>
+            <article data-role="content">
+                <form>
+                    <div><label for="text-basic">Name:</label><input type="text" name="nameInput" id="nameInput" required></div>
+                    <div><label>Phone:</label> <input type="number" name="numberInput" id="numberInput" required></div>
+                    <div><label>Email:</label> <input type="email" name="emailInput" id="emailInput" required></div>
+                    <div class="ui-field-contain">
+                        <label for="slider-flip-m">Gender:</label>
+                        <select name="slider-flip-m" id="slider-flip-m" data-role="slider">
+                            <option value="male" selected>Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+                    <fieldset data-role="controlgroup" data-type="horizontal">
+                        <input type="button" id="split" data-icon="check" value="save">
+                        <button data-icon="forbidden">Cancel</button>
+                    </fieldset>
+                </form>
+            </article>
+            <footer data-role="footer">
+                <h1>Contact List</h1>
+            </footer>
+        </section>
+        <!-- ------------------------------------------edit Contact------------------------------------------ -->
+        <section data-role="page" id="editProfile">
+            <header data-role="header"  data-add-back-btn="true">
+                <h3>Edit Profile</h3>
+            </header>
+            <article data-role="content">
+                <form id="profiledata">
+                    <div><label for="text-basic">Name:</label><input type="text" name="nameInput" id="editName" required></div>
+                    <div><label>Phone:</label> <input type="number" name="numberInput" id="editPhone" required></div>
+                    <div><label>Email:</label> <input type="email" name="emailInput" id="editEmail" required></div>
+                    <div class="ui-field-contain">
+                        <label for="slider-flip-m">Gender:</label>
+                        <select name="slider-flip-m" id="slider-flip-m" data-role="slider">
+                            <option value="male" selected>Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+                    <fieldset data-role="controlgroup" data-type="horizontal">
+                        <input type="button" id="split" data-icon="check" value="save" onclick="edit()">
+                        <!-- <a href="#contactInfo"><input type="button" id="split" data-icon="check" value="save" onclick="edit()"></a>  -->
+                        
+                        <a href="#contactInfo" class="ui-btn ui-btn-inline" data-icon="forbidden">Cancel</a>
+                    </fieldset>
+                </form>
+            </article>
+            <footer data-role="footer">
+                <h1>Contact List</h1>
+            </footer>
+        </section>
+
+    <!-- ------------------------------------------imports------------------------------------------ -->
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src="User.js"></script>
+    <script src="object.js"></script>
+
+</body>
+</html>
