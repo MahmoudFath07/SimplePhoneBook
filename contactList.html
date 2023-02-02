@@ -20,7 +20,6 @@
                 <!-- ------------------------------------------Search & List View------------------------------------------ -->
                 <ul data-role="listview" data-split-icon="gear" data-split-theme="d" data-inset="true"
                     data-autodividers="true" data-filter="true">
-                    
                 </ul>
             </article>
             <!-- ------------------------------------------Footer------------------------------------------ -->
@@ -32,13 +31,14 @@
         <!-- ------------------------------------------contact info------------------------------------------ -->
         <section id="contactInfo" data-role="page">
             <header data-role="header" data-add-back-btn="true">
-                <h1>Person</h1>
+                <a href="#contactList" data-icon="carat-l">back</a>
+                <h1>Profile</h1>
             </header>
             <article data-role="content">
                 
                 <img src="" style="width: 100px; height: 25%;" id="profileImage"><br>
                 <a href="#deleteContact" data-rel="popup" data-position-to="window" data-transition="pop" class="ui-btn ui-btn-inline ui-icon-delete ui-btn-icon-notext" data-rel="dialog"> </a>
-                <a href="#editProfile"><button class="ui-btn ui-btn-inline ui-icon-edit ui-btn-icon-notext" onclick="editView()"></button></a>
+                <a href="#editProfile"><button id="editBtn" class="ui-btn ui-btn-inline ui-icon-edit ui-btn-icon-notext" onclick="editView()"></button></a>
                 <a href="tel:012" class="ui-btn ui-btn-inline ui-icon-phone ui-btn-icon-notext"></a>
 
                 <div data-role="popup" id="deleteContact" data-overlay-theme="b" data-theme="b" data-dismissible="false" style="max-width:300px; ">
@@ -61,12 +61,6 @@
                 <h1>Contact List</h1>
             </footer>
         </section>
-    
-        <!-- <section id="deleteContact" data-role="dialog">
-            <h1 style="text-align: center;">Delete Contact?</h1>
-                <a href="#" class=" ui-btn   ui-btn-b">Delete</a>
-                <a href="#contactInfo"class=" ui-btn   ui-btn-b">Cancel</a>
-        </section> -->
        
         <!-- ------------------------------------------create Contact------------------------------------------ -->
         <section data-role="page" id="newContact">
@@ -74,10 +68,10 @@
                 <h3>New Contact</h3>
             </header>
             <article data-role="content">
-                <form>
-                    <div><label for="text-basic">Name:</label><input type="text" name="nameInput" id="nameInput" required></div>
-                    <div><label>Phone:</label> <input type="number" name="numberInput" id="numberInput" required></div>
-                    <div><label>Email:</label> <input type="email" name="emailInput" id="emailInput" required></div>
+                <form id="myForm">
+                    <div><label for="text-basic">Name:</label><input type="text" name="nameInput" id="nameInput" ></div>
+                    <div><label>Phone:</label> <input type="number" name="numberInput" id="numberInput" ></div>
+                    <div><label>Email:</label> <input type="email" name="emailInput" id="emailInput" ></div>
                     <div class="ui-field-contain">
                         <label for="slider-flip-m">Gender:</label>
                         <select name="slider-flip-m" id="slider-flip-m" data-role="slider">
@@ -86,8 +80,9 @@
                         </select>
                     </div>
                     <fieldset data-role="controlgroup" data-type="horizontal">
-                        <input type="button" id="split" data-icon="check" value="save">
-                        <button data-icon="forbidden">Cancel</button>
+                        <input type="button" id="save" data-icon="check" value="save">
+                        <!-- <button id="cancel" data-icon="forbidden" data-rel="back">Cancel</button> -->
+                            <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-w" data-rel="back">Cancel</a>
                     </fieldset>
                 </form>
             </article>
@@ -113,10 +108,8 @@
                         </select>
                     </div>
                     <fieldset data-role="controlgroup" data-type="horizontal">
-                        <input type="button" id="split" data-icon="check" value="save" onclick="edit()">
-                        <!-- <a href="#contactInfo"><input type="button" id="split" data-icon="check" value="save" onclick="edit()"></a>  -->
-                        
-                        <a href="#contactInfo" class="ui-btn ui-btn-inline" data-icon="forbidden">Cancel</a>
+                        <a href="#contactInfo"  id="editSave" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-w" data-icon="check" value="save" onclick="edit()">save</a> 
+                        <a href="#contactInfo" id="cancel" class="ui-btn ui-btn-inline" data-icon="forbidden">Cancel</a>
                     </fieldset>
                 </form>
             </article>
